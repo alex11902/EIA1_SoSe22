@@ -125,7 +125,8 @@ footer{
 }
 .footerbox{
   
-    font-family:'Impact';
+    color: black;
+    font-family:'Courier New';
     width: 50%;
     margin: auto;    
     bottom: 25px;
@@ -135,6 +136,8 @@ footer{
     margin-left: 2%;
     padding: 10px;
     background: #eaeaea;
+
 /*    border: 2px solid black;
+
 */
 }
