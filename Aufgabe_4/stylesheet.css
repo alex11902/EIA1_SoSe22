@@ -5,7 +5,7 @@
       background-color: #008cffcc;
       background-image: linear-gradient(rgb(0, 191, 255),rgb(255, 255, 255));
       margin: auto;
-      
+
     }
 
   h1,h2,h3,h4,h5,h6{
@@ -28,6 +28,7 @@
   text-decoration: none;
   display: inline-block;
   font-size: 32px;
+  font-weight: bold;
   margin: 4px 2px;
   transition-duration: 0.2s;
   cursor: pointer;
@@ -37,14 +38,14 @@
 
 .button1 {
   font-weight: 600;
-  color: black;
+  color: rgb(0, 0, 0);
   float: left;
   margin-top: 2%;
   }
 
 .button1:hover {
   font-weight:bolder;
-  color: #008CBA;
+  color: aqua;
 }
 
 .button2 {
@@ -72,6 +73,7 @@
 }
 
 header{
+
     margin: auto;
     padding: 15px;
     background-image: url(foto/cube_repeat.jpg);
@@ -84,6 +86,7 @@ header{
 
 .main{
 
+    align-items: center;
     padding: auto;
     max-width: 800px;
     margin: auto;
@@ -93,6 +96,8 @@ header{
 
 footer{
 
+    margin: auto;
+    padding: auto;
     font-family: 'Courier New';
     background-color: #eaeaea;
     padding: 15px;
@@ -102,7 +107,8 @@ footer{
 }
 .footerbox{
 
-    
+    float: left;
+    position: relative;
     max-width: 200px;
     max-height: 150px;
     margin-right: 2%;
