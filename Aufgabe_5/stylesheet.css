@@ -76,7 +76,7 @@ header{
 
     margin: auto;
     padding: 15px;
-    /**background-image: url(foto/cube_repeat.jpg);**/
+    background-image: url(foto/cube_repeat.jpg);
     background-position: center;
     height: 400px;
     color: navy;
