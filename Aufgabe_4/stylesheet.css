@@ -94,9 +94,14 @@ img{
   transition: 0.2s;
 
 }
-
-
-
+.css-slides{
+    position:relative;
+    height:0;
+    padding-bottom: 100%;
+    overflow:hidden;
+    display:block;
+  
+}
 .main:hover img{
   opacity: 65%;;
 }
