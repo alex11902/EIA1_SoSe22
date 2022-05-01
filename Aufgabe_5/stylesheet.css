@@ -1,4 +1,5 @@
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900');
 
   body{
 
@@ -12,7 +13,7 @@
     color: black;
     word-spacing: 2px;
     margin: auto;
-    font-family: 'Courier New';
+    font-family: 'Montserrat';
   }
 
   .button{
@@ -76,12 +77,11 @@ header{
     margin: auto;
     padding: 15px;
     /**background-image: url(foto/cube_repeat.jpg);**/
-    background-position: inherit;
+    background-position: center;
     height: 400px;
     color: navy;
     font-size: 18px;
-    font-family: 'Courier New';
-    
+
 }
 
 img{
@@ -95,15 +95,27 @@ img{
   transition: 0.2s;
 
 }
-.css-slides{
-    position:relative;
+header .css-slides{
+
+    background-image: url(../Aufgabe_5/foto/cube_repeat.jpg);
+    position:absolute;
     height:0;
-    padding-bottom: 100%;
+    padding-bottom: 10px ;
     overflow:hidden;
     display:block;
+    justify-content: center;
+    align-items: center;
   
 }
-
+.slider{
+  position: fixed;
+  float: right;
+  margin: 1%;
+  font-family: 'Montserrat';
+  font-size: large;
+  color: black;
+  background-color: orange;
+}
 @keyframes fade {
 	0%      { opacity: 0; }  /** fadeIn beginnt            **/
 	11.11%  { opacity: 1; }  /** Bild steht                **/
@@ -112,14 +124,15 @@ img{
 	100%    { opacity: 0; }
 }
 
-css-slides img:nth-child(1) { animation-delay: 0s; }
+header css-slides img:nth-child(1) { animation-delay: 0s; }
 css-slides img:nth-child(2) { animation-delay: 3s; }
 css-slides img:nth-child(3) { animation-delay: 6s; }
 
 .css-slides img{
   opacity: 0;
   animation-name: fade;
-  animation-duration: 9s infinite;
+  animation-duration: 9s;
+  animation-iteration-count: infinite;
   position: absolute;
   left: 0;
   right: 0;
