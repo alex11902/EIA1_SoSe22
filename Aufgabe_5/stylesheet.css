@@ -95,16 +95,21 @@ img{
   transition: 0.2s;
 
 }
-header .css-slides{
+header .background{
 
     background-image: url(../Aufgabe_5/foto/cube_repeat.jpg);
     position:absolute;
-    height:0;
+    height:400px;
+    width: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    animation-name: fade;
     padding-bottom: 10px ;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
     overflow:hidden;
-    display:block;
-    justify-content: center;
-    align-items: center;
+
   
 }
 .slider{
@@ -117,11 +122,11 @@ header .css-slides{
   background-color: orange;
 }
 @keyframes fade {
-	0%      { opacity: 0; }  /** fadeIn beginnt            **/
-	11.11%  { opacity: 1; }  /** Bild steht                **/
-	33.33%  { opacity: 1; }  /** Bild bleibt zwei Sekunden **/
-	44.44%  { opacity: 0; }  /** fadeOut beendet           **/
-	100%    { opacity: 0; }
+	0%      { background-image: url("foto/cube_repeat.jpg"); }  /** fadeIn beginnt            **/
+	11.11%  { background-image: url("foto/daffodils.jpeg"); }  /** Bild steht                **/
+	33.33%  { background-image: url("foto/flora.jpeg"); }  /** Bild bleibt zwei Sekunden **/
+	44.44%  { background-image: url("foto/pillars_of_creation.jpeg"); }  /** fadeOut beendet           **/
+	100%    { background-image: url("foto/tigersittich.jpeg"); }
 }
 
 header css-slides img:nth-child(1) { animation-delay: 0s; }
