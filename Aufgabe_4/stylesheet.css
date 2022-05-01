@@ -29,7 +29,7 @@
   margin: 4px 2px;
   transition-duration: 0.2s;
   cursor: pointer;
-  font-family: 'Comic sans ms';
+  font-family: 'Courier New';
   
 }
 
@@ -95,20 +95,23 @@ img{
 
 }
 
-img:hover{
-  
-  transform: scale(1.2);
 
+
+.main:hover img{
+  opacity: 65%;;
+}
+.main img:hover{
+  opacity:100%;
+  transform:scale(1.2);
 }
 
-img:nth-child(:not){
-
-  opacity: 50%;
-
+.main:hover video{
+  opacity: 65%;;
 }
-
-
-
+.main video:hover{
+  opacity:100%;
+  transform:scale(1.2);
+}
 
 
 a img[src$=".svg"]{
@@ -137,6 +140,7 @@ video{
     max-width: 800px;
     margin: auto;
     margin-bottom: 4%;
+    font-family: 'Arial';
 
 }
 
@@ -145,13 +149,11 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: '';
     background-color: #eaeaea;
     padding: auto;
     margin: auto;
     min-height: 200px;
     color: navy;
-    
     
 }
 
