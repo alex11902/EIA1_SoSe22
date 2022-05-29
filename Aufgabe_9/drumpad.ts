@@ -26,7 +26,7 @@ function clicked() {
     document.querySelector(".pad_h").addEventListener("click", function() {playSample(soundpad.laugh_2); });
     document.querySelector(".pad_i").addEventListener("click", function() {playSample(soundpad.snare); });
     document.querySelector(".playbutton").addEventListener("click", soundplay );
-    document.querySelector("random").addEventListener("click", function() { playSample( Math.floor( Math.random()* drum_machine.length ); });
+    document.querySelector(".random").addEventListener("click", function() {randombeat();});
 }
 
 function playSample(soundpad: string): void {
@@ -34,12 +34,22 @@ function playSample(soundpad: string): void {
     sound.play();
 }
 
-const drum_machine :string = {
+function randombeat(){
 
-    0: "assets/DrumPad/kick.mp3",
-    1: "assets/DrumPad/snare.mp3",
-    2: "assets/DrumPad/hihat.mp3"
-};
+for (let index = 0; index < drum_machine.length; index++) {
+    const element = drum_machine[index];
+    const rng = Math.floor(Math.random()* drum_machine.length );
+    playSample(drum_machine[rng]);
+}
+
+}
+
+const drum_machine :string [] = [
+
+     "assets/DrumPad/kick.mp3",
+     "assets/DrumPad/snare.mp3",
+     "assets/DrumPad/hihat.mp3"
+];
 
 function soundplay(): void {
 

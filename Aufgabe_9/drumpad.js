@@ -11,28 +11,34 @@ var soundpad = {
     snare: "assets/DrumPad/snare.mp3"
 };
 function clicked() {
-    document.querySelector(".pad_a").addEventListener('click', function () { playSample(soundpad.a); });
-    document.querySelector(".pad_b").addEventListener('click', function () { playSample(soundpad.c); });
-    document.querySelector(".pad_c").addEventListener('click', function () { playSample(soundpad.f); });
-    document.querySelector(".pad_d").addEventListener('click', function () { playSample(soundpad.g); });
-    document.querySelector(".pad_e").addEventListener('click', function () { playSample(soundpad.hihat); });
-    document.querySelector(".pad_f").addEventListener('click', function () { playSample(soundpad.kick); });
-    document.querySelector(".pad_g").addEventListener('click', function () { playSample(soundpad.laugh_1); });
-    document.querySelector(".pad_h").addEventListener('click', function () { playSample(soundpad.laugh_2); });
-    document.querySelector(".pad_i").addEventListener('click', function () { playSample(soundpad.snare); });
-    document.querySelector(".playbutton").addEventListener('click', soundplay);
+    document.querySelector(".pad_a").addEventListener("click", function () { playSample(soundpad.a); });
+    document.querySelector(".pad_b").addEventListener("click", function () { playSample(soundpad.c); });
+    document.querySelector(".pad_c").addEventListener("click", function () { playSample(soundpad.f); });
+    document.querySelector(".pad_d").addEventListener("click", function () { playSample(soundpad.g); });
+    document.querySelector(".pad_e").addEventListener("click", function () { playSample(soundpad.hihat); });
+    document.querySelector(".pad_f").addEventListener("click", function () { playSample(soundpad.kick); });
+    document.querySelector(".pad_g").addEventListener("click", function () { playSample(soundpad.laugh_1); });
+    document.querySelector(".pad_h").addEventListener("click", function () { playSample(soundpad.laugh_2); });
+    document.querySelector(".pad_i").addEventListener("click", function () { playSample(soundpad.snare); });
+    document.querySelector(".playbutton").addEventListener("click", soundplay);
+    document.querySelector(".random").addEventListener("click", function () { randombeat(); });
 }
-;
 function playSample(soundpad) {
     var sound = new Audio(soundpad);
     sound.play();
 }
-;
-var drum_machine = {
-    0: "assets/DrumPad/kick.mp3",
-    1: "assets/DrumPad/snare.mp3",
-    2: "assets/DrumPad/hihat.mp3"
-};
+function randombeat() {
+    for (var index = 0; index < drum_machine.length; index++) {
+        var element = drum_machine[index];
+        var rng = Math.floor(Math.random() * drum_machine.length);
+        playSample(drum_machine[rng]);
+    }
+}
+var drum_machine = [
+    "assets/DrumPad/kick.mp3",
+    "assets/DrumPad/snare.mp3",
+    "assets/DrumPad/hihat.mp3"
+];
 function soundplay() {
     setInterval(function () {
         playSample(drum_machine[0]);
@@ -44,3 +50,6 @@ function soundplay() {
         playSample(drum_machine[2]);
     }, 1500);
 }
+// function random(){
+//     soundpad[Math.floor(Math.random()* soundpad.)];
+// }
