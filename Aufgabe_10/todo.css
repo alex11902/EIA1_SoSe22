@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+    text-align: center;
+}
+
+body{
+    background-color: #fff;
+}
+ul{
+
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+}
+
+ul li:hover{
+    background-color: #19bad6;
+}
+
+h2{
+    text-align: center;
+    color: #19bad6;
+    font-size: x-large;
+}
