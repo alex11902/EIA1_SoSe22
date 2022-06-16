@@ -1,13 +1,19 @@
 
+window.addEventListener('load', onClick);
+
+function onClick(): void{
+  document.querySelector("button1").addEventListener("click", newTask);
+};
+//initialisierung der datensatze
 var counter: number = 0;
-
-
-//var input: HTMLInputElement = document.querySelector("#input")
-
-
-// Create a "closeddd" button and append it to each list item
 var closebutton = document.getElementsByTagName("LI");
+var closeddd = document.getElementsByClassName("close");
+var list = document.querySelector("ul");
+var closedd = document.getElementsByClassName("close")
+let inputVal = document.getElementById("input") as HTMLInputElement;
+
 var i: number;
+
 for (i = 0; i < closebutton.length; i++) {
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
@@ -17,38 +23,40 @@ for (i = 0; i < closebutton.length; i++) {
 }
 
 // Click on a closeddd button to hide the current list item
-var closeddd = document.getElementsByClassName("close");
-var i: number;
-for (i = 0; i < closeddd.length; i++) {
-  closeddd[i]:onclick = function() {
-    var div = this.parent;
-    div.style.display = "none";
-  }
-}
 
-// // Add a "checked" symbol when clicking on a list item
-// var list = document.querySelector('ul');
-// list.addEventListener('click', function(ev) {
-//   if (ev.target:this.tagName === 'LI') {
-//     ev.target.classList.toggle('check');
+// var i: number;
+// for (i = 0; i < closeddd.length; i++) {
+//   closeddd[i]:onclick = function() {
+//     var div = this.parent;
+//     div.style.display = "none";
 //   }
-// }, false);
+// }
 
-// Create a new list item when clicking on the "Add" button
-function newTask() {
+// an jedes listenelement mit dem tag "LI" wird ein checkmark gehangen
+
+ list.addEventListener('click', function() {
+   if ( list.tagName == 'LI') {
+     list.classList.toggle('check');
+   }
+ }, false);
+
+
+function newTask()  {
   var list = document.createElement("li");
-  var inputVal = document.getElementById("input").nodeValue;
-  var t = document.createTextNode(inputVal);
+  let inputVal = document.getElementById("input") as HTMLInputElement;
+  var t = document.createTextNode(inputVal.value);
   list.appendChild(t);
-  if (inputVal === '') {
-    alert("You must write something!");
+  if (inputVal.value == "" )  {
+    window.alert("hier gehoert etwas rein");
+
   } else {
     document.getElementById("mylist").appendChild(list);
   }
-  document.getElementById("input").nodeValue = "";
+  inputVal.value = "";
 
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
+
   span.className = "close";
   span.appendChild(txt);
   list.appendChild(span);
