@@ -12,7 +12,7 @@ const soundpad = {
     laugh_1: "assets/DrumPad/laugh-1.mp3",
     laugh_2: "assets/DrumPad/laugh-2.mp3",
     snare: "assets/DrumPad/snare.mp3"
-
+    
 };
 
 function clicked() {

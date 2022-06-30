@@ -1,0 +1,84 @@
+
+body{
+
+margin: 0;
+padding: 0;
+width: 375px;
+height: 667px;
+background-color: gainsboro;
+
+}
+
+button{
+
+    border: none;
+    border-radius: 8px;
+    color:#057aa8;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 4px 2px;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    font-family: 'Courier New';
+    background-color: bisque;
+
+  }
+  
+  button:hover {
+
+    font-weight:bold;
+    color: black;
+    transform: scale(1.08);
+
+  }
+
+
+#textbox{
+
+    height: 350px;
+    width: 375px;
+    background-color:burlywood;
+    
+
+}
+
+
+#datenbox{
+
+    height: 272px;
+    width: 375px;
+    background-color:bisque;
+    padding: auto;
+
+
+}
+
+p{
+
+    font-family: Impact, Arial;
+    text-align: center;
+    margin: auto;
+    padding: auto;
+
+}
+
+footer{
+
+    bottom: 0px;
+    position: absolute;
+    height: 45px;
+    width: 375px;
+    margin: 0;
+    padding:0;
+    background-color: #ff9100;
+    font-family: arial;
+    font-weight: bolder;
+    color: rebeccapurple;
+    text-align: center;
+    justify-content: center;
+
+}
