@@ -5,7 +5,7 @@ margin: 0;
 padding: 0;
 width: 375px;
 height: 667px;
-background-color: gainsboro;
+background-color: rgb(220, 220, 220);
 
 }
 
@@ -41,7 +41,7 @@ button{
 
     height: 350px;
     width: 375px;
-    background-color:burlywood;
+    background-color:#deb887;
     
 
 }
@@ -51,7 +51,7 @@ button{
 
     height: 272px;
     width: 375px;
-    background-color:bisque;
+    background-color:#ffe4c4;
     padding: auto;
 
 
@@ -59,10 +59,14 @@ button{
 
 p{
 
-    font-family: Impact, Arial;
-    text-align: center;
+    padding-top: 20px;
     margin: auto;
-    padding: auto;
+    padding: 1%;
+    font-family:arial;
+    text-align:center;
+    font-size:28px;
+    color:rebeccapurple;
+    font-weight:bolder;
 
 }
 
@@ -80,5 +84,12 @@ footer{
     color: rebeccapurple;
     text-align: center;
     justify-content: center;
+
+}
+
+#pointCounter{
+
+float: left;
+position: fixed;
 
 }

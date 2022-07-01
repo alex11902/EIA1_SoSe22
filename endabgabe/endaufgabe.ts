@@ -27,7 +27,7 @@ var Stufe_1: Satz[] = [
 },
 {
     de:["Ich bin dreiundzwanzig jahre alt"],
-    es:["Tengo","veintitres","anos"],
+    es:["Tengo","veintitres","años"],
     num:[4]
 },
 {
@@ -36,8 +36,8 @@ var Stufe_1: Satz[] = [
     num:[5]
 },
 {
-    de:["gehen wir!"],
-    es:["Vamonos!"],
+    de:["Komm her!"],
+    es:["ven","para","aca"],
     num:[6]
 },
 {
@@ -71,8 +71,8 @@ var Stufe_1: Satz[] = [
     num:[12]
 },
 {
-    de:["hilf mir"],
-    es:["ayudame","dame"],
+    de:["Wieviel uhr haben wir?"],
+    es:["que","ahora","es"],
     num:[13]
 },
 {
@@ -102,16 +102,13 @@ const schwer = document.getElementById("Schwer");
 const create_textbox = document.createElement("p");
 const totranslate = document.createElement("p");
 const translate = document.createElement("p");
-const randint = Math.floor(Math.random()*Stufe_1.length)
+const randint = Math.floor(Math.random()*Stufe_1.length);
+let pointcounter = document.getElementById("pointCounter");
 
 function startscreen(){
 
-
-
-//create_onbox.innerHTML = "Hola,  Hacemos!";
-//create_onbox.setAttribute("style","font-family: impact; text-align:center;")
 create_textbox.innerHTML = "Hallo!";
-create_textbox.setAttribute("style", "font-family:impact,Arial; text-align:center;color:#057aa8; font-size:38px; top:50%;left:50%; ")
+create_textbox.setAttribute("style", "font-family:impact,Arial; text-align:center;color:#057aa8; font-size:38px; padding-top:20%;padding-bottom:10%;left:50%; ")
 
 
 document.getElementById("textbox").appendChild(create_textbox);
@@ -121,43 +118,51 @@ schwierigkeitsstufenauswahl();
 
 function schwierigkeitsstufenauswahl(){
     
-    
+
     document.getElementById("textbox").appendChild(leicht);
     leicht.addEventListener('click', Level_1 )
 
       document.getElementById("textbox").appendChild(mittel);
-    mittel.addEventListener('click', Level_2 )
+    mittel.addEventListener('click', Level_1 )
 
    
     document.getElementById("textbox").appendChild(schwer);
-    schwer.addEventListener('click', Level_3 )
+    schwer.addEventListener('click', Level_1 )
 
 }
 
 
 //initialisierung von elementen damit nix redundant ist
-
+var random = Math.floor(Math.random()*Stufe_1.length)
 
 function Level_1() {
 
     leicht.remove();mittel.remove();schwer.remove();create_textbox.remove();
 
-
-
-    totranslate.innerHTML = random_item(Stufe_1[randint].de);
-    totranslate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:#057aa8;padding-top:30%;font-weight:bolder;");
+    totranslate.innerHTML = random_item(Stufe_1[random].de);
+    totranslate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:#057aa8;font-weight:bolder;");
     textbox.appendChild(totranslate);
-    
-    for (let index = 0; index < random_item(Stufe_1[randint].es.length); index++) {
-        const element = Stufe_1[index];
-        console.log(index);
-        
+
+    let shuffleit = shuffle(Stufe_1[random].es)
+
+    for (let index = 0; index < shuffleit.length; index++) {
+        const element = shuffleit[index];
+        console.log(element);
+        var z = document.createElement("p");
+        z.innerHTML = element;
+        datenbox.appendChild(z);
     }
-    var x = random_item(Stufe_1[randint].es.length)
-    translate.innerHTML = random_item(Stufe_1[randint].es);
-    translate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:rebeccapurple;padding-top:75px;font-weight:bolder;");
-    datenbox.appendChild(translate);
-    //console.log(x)
+
+    z.addEventListener('click', function(){
+        textbox.appendChild(z);
+    } )
+    
+
+}
+
+function wasclicked(){
+
+    
 
 }
 
@@ -169,107 +174,93 @@ return items[Math.floor(Math.random()*items.length)];
 }
 
 
-function Level_2(){
+// function Level_2(){
 
-    leicht.remove();mittel.remove();schwer.remove();create_textbox.remove();
+//     leicht.remove();mittel.remove();schwer.remove();create_textbox.remove();
 
 
 
-    totranslate.innerHTML = random_item(Stufe_1[randint].de);
-    totranslate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:#057aa8;padding-top:30%;font-weight:bolder;");
-    textbox.appendChild(totranslate);
+//     totranslate.innerHTML = random_item(Stufe_1[randint].de);
+//     totranslate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:#057aa8;padding-top:30%;font-weight:bolder;");
+//     textbox.appendChild(totranslate);
     
-    for (let index = 0; index < random_item(Stufe_1[randint].es.length); index++) {
-        const element = Stufe_1[index];
-        console.log(index);
+//     for (let index = 0; index < random_item(Stufe_1[randint].es.length); index++) {
+//         const element = Stufe_1[index];
+//         console.log(index);
         
-    }
-    var x = random_item(Stufe_1[randint].es.length)
-    translate.innerHTML = random_item(Stufe_1[randint].es);
-    translate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:rebeccapurple;padding-top:75px;font-weight:bolder;");
-    datenbox.appendChild(translate);
+//     }
+//     var z = random_item(Stufe_1[randint].es.length)
+//     translate.innerHTML = random_item(Stufe_1[randint].es);
+//     translate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:rebeccapurple;padding-top:75px;font-weight:bolder;");
+//     datenbox.appendChild(translate);
 
-}
+// }
 
-function Level_3(){
+// function Level_3(){
 
-    leicht.remove();mittel.remove();schwer.remove();create_textbox.remove();
+//     leicht.remove();mittel.remove();schwer.remove();create_textbox.remove();
 
 
 
-    totranslate.innerHTML = random_item(Stufe_1[randint].de);
-    totranslate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:#057aa8;padding-top:30%;font-weight:bolder;");
-    textbox.appendChild(totranslate);
+//     totranslate.innerHTML = random_item(Stufe_1[randint].de);
+//     totranslate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:#057aa8;padding-top:30%;font-weight:bolder;");
+//     textbox.appendChild(totranslate);
     
-    for (let index = 0; index < random_item(Stufe_1[randint].es.length); index++) {
-        const element = Stufe_1[index];
-        console.log(index);
+//     for (let index = 0; index < random_item(Stufe_1[randint].es.length); index++) {
+//         const element = Stufe_1[index];
+//         console.log(index);
         
-    }
+//     }
 
-    var x = random_item(Stufe_1[randint].es.length)
-    translate.innerHTML = random_item(Stufe_1[randint].es);
-    translate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:rebeccapurple;padding-top:75px;font-weight:bolder;");
-    datenbox.appendChild(translate);
+//     var x = random_item(Stufe_1[randint].es.length)
+//     translate.innerHTML = random_item(Stufe_1[randint].es);
+//     translate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:rebeccapurple;padding-top:75px;font-weight:bolder;");
+//     datenbox.appendChild(translate);
 
-}
+// }
 
-const arr = [
-    {id: 1, name: 'Tom'},
-    {id: 1, name: 'Tom'},
-    {id: 2, name: 'Nick'},
-    {id: 2, name: 'Nick'},
-  ];
-  
-  const uniqueIds = [];
+//   const uniqueIds = [];
 
-  const unique = Stufe_1.filter(element => {
-    const isDuplicate = uniqueIds.includes(element.num);
+//   const unique = Stufe_1.filter(element => {
+//     const isDuplicate = uniqueIds.includes(element.num);
   
-    if (!isDuplicate) {
-      uniqueIds.push(element.num);
+//     if (!isDuplicate) {
+//       uniqueIds.push(element.num);
   
-      return true;
-    }
+//       return true;
+//     }
   
-    return false;
-  });
+//     return false;
+//   });
 
 
 function equals(a, b) {
     return a.length === b.length &&
         a.every((v, i) => v === b[i]);
-
 }
-
 
 // durcheinanerbringer funktion
 
 function shuffle(Arr) {
     let currentIndex = Arr.length,  randomIndex;
-  
+ 
     // Wenn noch objekte zum durchwuseln sind
     while (currentIndex != 0) {
 
       // Pick a remaining element.
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
-  
+
       // And swap it with the current element.
       [Arr[currentIndex], Arr[randomIndex]] = [
         Arr[randomIndex], Arr[currentIndex]];
     }
-  
+
     return Arr;
 
   }
 
-  
   // testen der vergleichfunktion
-
   //if( equals( Stufe_1[1].es, Comparethis[1].es) == true ){
-
-
   //}
-
   //console.log(shuffle(Stufe_1[].de));
