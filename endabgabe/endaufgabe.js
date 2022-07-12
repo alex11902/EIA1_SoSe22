@@ -1,3 +1,4 @@
+//array mit datensatzen
 var Stufe_1 = [
     {
         de: ["Mein name ist Alex"],
@@ -88,22 +89,25 @@ var totranslate = document.createElement("p");
 var translate = document.createElement("p");
 var randint = Math.floor(Math.random() * Stufe_1.length);
 var pointcounter = document.getElementById("pointCounter");
+// oeffnet einen startscreen, der hallo sagt
 function startscreen() {
     create_textbox.innerHTML = "Hallo!";
     create_textbox.setAttribute("style", "font-family:impact,Arial; text-align:center;color:#057aa8; font-size:38px; padding-top:20%;padding-bottom:10%;left:50%; ");
     document.getElementById("textbox").appendChild(create_textbox);
     schwierigkeitsstufenauswahl();
 }
+// auswahl von schwierigkeit
 function schwierigkeitsstufenauswahl() {
     document.getElementById("textbox").appendChild(leicht);
     leicht.addEventListener('click', Level_1);
     document.getElementById("textbox").appendChild(mittel);
-    mittel.addEventListener('click', Level_1);
+    mittel.addEventListener('click', Level_2);
     document.getElementById("textbox").appendChild(schwer);
-    schwer.addEventListener('click', Level_1);
+    schwer.addEventListener('click', Level_3);
 }
 //initialisierung von elementen damit nix redundant ist
 var random = Math.floor(Math.random() * Stufe_1.length);
+// start des ersten levels
 function Level_1() {
     leicht.remove();
     mittel.remove();
@@ -124,48 +128,61 @@ function Level_1() {
         textbox.appendChild(z);
     });
 }
-function wasclicked() {
-}
+// funktion mit ruckgabewert eins
 function random_item(items) {
     return items[Math.floor(Math.random() * items.length)];
 }
-// function Level_2(){
-//     leicht.remove();mittel.remove();schwer.remove();create_textbox.remove();
-//     totranslate.innerHTML = random_item(Stufe_1[randint].de);
-//     totranslate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:#057aa8;padding-top:30%;font-weight:bolder;");
-//     textbox.appendChild(totranslate);
-//     for (let index = 0; index < random_item(Stufe_1[randint].es.length); index++) {
-//         const element = Stufe_1[index];
-//         console.log(index);
-//     }
-//     var z = random_item(Stufe_1[randint].es.length)
-//     translate.innerHTML = random_item(Stufe_1[randint].es);
-//     translate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:rebeccapurple;padding-top:75px;font-weight:bolder;");
-//     datenbox.appendChild(translate);
-// }
-// function Level_3(){
-//     leicht.remove();mittel.remove();schwer.remove();create_textbox.remove();
-//     totranslate.innerHTML = random_item(Stufe_1[randint].de);
-//     totranslate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:#057aa8;padding-top:30%;font-weight:bolder;");
-//     textbox.appendChild(totranslate);
-//     for (let index = 0; index < random_item(Stufe_1[randint].es.length); index++) {
-//         const element = Stufe_1[index];
-//         console.log(index);
-//     }
-//     var x = random_item(Stufe_1[randint].es.length)
-//     translate.innerHTML = random_item(Stufe_1[randint].es);
-//     translate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:rebeccapurple;padding-top:75px;font-weight:bolder;");
-//     datenbox.appendChild(translate);
-// }
-//   const uniqueIds = [];
-//   const unique = Stufe_1.filter(element => {
-//     const isDuplicate = uniqueIds.includes(element.num);
-//     if (!isDuplicate) {
-//       uniqueIds.push(element.num);
-//       return true;
-//     }
-//     return false;
-//   });
+function Level_2() {
+    leicht.remove();
+    mittel.remove();
+    schwer.remove();
+    create_textbox.remove();
+    totranslate.innerHTML = random_item(Stufe_1[random].de);
+    totranslate.setAttribute("style", "font-family:arial; text-align:center;font-size:28px;color:#057aa8;font-weight:bolder;");
+    textbox.appendChild(totranslate);
+    var shuffleit = shuffle(Stufe_1[random].es);
+    for (var index = 0; index < shuffleit.length; index++) {
+        var element = shuffleit[index];
+        console.log(element);
+        var z = document.createElement("p");
+        z.innerHTML = element;
+        datenbox.appendChild(z);
+    }
+    z.addEventListener('click', function () {
+        textbox.appendChild(z);
+    });
+}
+function Level_3() {
+    leicht.remove();
+    mittel.remove();
+    schwer.remove();
+    create_textbox.remove();
+    totranslate.innerHTML = random_item(Stufe_1[random].de);
+    totranslate.setAttribute("style", "font-family:arial; text-align:center;font-size:28px;color:#057aa8;font-weight:bolder;");
+    textbox.appendChild(totranslate);
+    var shuffleit = shuffle(Stufe_1[random].es);
+    for (var index = 0; index < shuffleit.length; index++) {
+        var element = shuffleit[index];
+        console.log(element);
+        var z = document.createElement("p");
+        z.innerHTML = element;
+        datenbox.appendChild(z);
+    }
+    z.addEventListener('click', function () {
+        textbox.appendChild(z);
+    });
+}
+// das checkt ob etas im array mehrmals existiert wenn es rausgezogen wird
+var uniqueIds = [];
+var unique = Stufe_1.filter(function (element) {
+    var isDuplicate = uniqueIds.includes(element.num);
+    if (!isDuplicate) {
+        uniqueIds.push(element.num);
+        return true;
+    }
+    return false;
+});
+// vergleicht arrays
 function equals(a, b) {
     return a.length === b.length &&
         a.every(function (v, i) { return v === b[i]; });
@@ -186,7 +203,3 @@ function shuffle(Arr) {
     }
     return Arr;
 }
-// testen der vergleichfunktion
-//if( equals( Stufe_1[1].es, Comparethis[1].es) == true ){
-//}
-//console.log(shuffle(Stufe_1[].de));

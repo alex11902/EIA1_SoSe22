@@ -1,4 +1,4 @@
-
+// objektinterface
 interface Satz {
 
     de: string[];
@@ -6,7 +6,7 @@ interface Satz {
     num:number[];
 
 }
-
+//array mit datensatzen
 var Stufe_1: Satz[] = [
     {
 
@@ -93,7 +93,6 @@ window.addEventListener('load', startscreen)
 
 //initialisierung von variablen, abkurzungen und anderen dingen
 
-
 const textbox = document.getElementById("textbox");
 const datenbox = document.getElementById("datenbox");
 const leicht = document.getElementById("Leicht");
@@ -105,6 +104,8 @@ const translate = document.createElement("p");
 const randint = Math.floor(Math.random()*Stufe_1.length);
 let pointcounter = document.getElementById("pointCounter");
 
+// oeffnet einen startscreen, der hallo sagt
+
 function startscreen(){
 
 create_textbox.innerHTML = "Hallo!";
@@ -115,7 +116,7 @@ document.getElementById("textbox").appendChild(create_textbox);
 schwierigkeitsstufenauswahl();
 
 }
-
+// auswahl von schwierigkeit
 function schwierigkeitsstufenauswahl(){
     
 
@@ -123,18 +124,18 @@ function schwierigkeitsstufenauswahl(){
     leicht.addEventListener('click', Level_1 )
 
       document.getElementById("textbox").appendChild(mittel);
-    mittel.addEventListener('click', Level_1 )
+    mittel.addEventListener('click', Level_2 )
 
    
     document.getElementById("textbox").appendChild(schwer);
-    schwer.addEventListener('click', Level_1 )
+    schwer.addEventListener('click', Level_3 )
 
 }
 
 
 //initialisierung von elementen damit nix redundant ist
 var random = Math.floor(Math.random()*Stufe_1.length)
-
+// start des ersten levels
 function Level_1() {
 
     leicht.remove();mittel.remove();schwer.remove();create_textbox.remove();
@@ -159,13 +160,7 @@ function Level_1() {
     
 
 }
-
-function wasclicked(){
-
-    
-
-}
-
+// funktion mit ruckgabewert eins
 function random_item(items)
 {
 
@@ -174,66 +169,70 @@ return items[Math.floor(Math.random()*items.length)];
 }
 
 
-// function Level_2(){
-
-//     leicht.remove();mittel.remove();schwer.remove();create_textbox.remove();
+ function Level_2(){
 
 
+    leicht.remove();mittel.remove();schwer.remove();create_textbox.remove();
 
-//     totranslate.innerHTML = random_item(Stufe_1[randint].de);
-//     totranslate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:#057aa8;padding-top:30%;font-weight:bolder;");
-//     textbox.appendChild(totranslate);
-    
-//     for (let index = 0; index < random_item(Stufe_1[randint].es.length); index++) {
-//         const element = Stufe_1[index];
-//         console.log(index);
-        
-//     }
-//     var z = random_item(Stufe_1[randint].es.length)
-//     translate.innerHTML = random_item(Stufe_1[randint].es);
-//     translate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:rebeccapurple;padding-top:75px;font-weight:bolder;");
-//     datenbox.appendChild(translate);
+    totranslate.innerHTML = random_item(Stufe_1[random].de);
+    totranslate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:#057aa8;font-weight:bolder;");
+    textbox.appendChild(totranslate);
 
-// }
+    let shuffleit = shuffle(Stufe_1[random].es)
 
-// function Level_3(){
+    for (let index = 0; index < shuffleit.length; index++) {
+        const element = shuffleit[index];
+        console.log(element);
+        var z = document.createElement("p");
+        z.innerHTML = element;
+        datenbox.appendChild(z);
+    }
 
-//     leicht.remove();mittel.remove();schwer.remove();create_textbox.remove();
+    z.addEventListener('click', function(){
+        textbox.appendChild(z);
+    } )
+ }
 
+ function Level_3(){
 
+    leicht.remove();mittel.remove();schwer.remove();create_textbox.remove();
 
-//     totranslate.innerHTML = random_item(Stufe_1[randint].de);
-//     totranslate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:#057aa8;padding-top:30%;font-weight:bolder;");
-//     textbox.appendChild(totranslate);
-    
-//     for (let index = 0; index < random_item(Stufe_1[randint].es.length); index++) {
-//         const element = Stufe_1[index];
-//         console.log(index);
-        
-//     }
+    totranslate.innerHTML = random_item(Stufe_1[random].de);
+    totranslate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:#057aa8;font-weight:bolder;");
+    textbox.appendChild(totranslate);
 
-//     var x = random_item(Stufe_1[randint].es.length)
-//     translate.innerHTML = random_item(Stufe_1[randint].es);
-//     translate.setAttribute("style","font-family:arial; text-align:center;font-size:28px;color:rebeccapurple;padding-top:75px;font-weight:bolder;");
-//     datenbox.appendChild(translate);
+    let shuffleit = shuffle(Stufe_1[random].es)
 
-// }
+    for (let index = 0; index < shuffleit.length; index++) {
+        const element = shuffleit[index];
+        console.log(element);
+        var z = document.createElement("p");
+        z.innerHTML = element;
+        datenbox.appendChild(z);
+    }
 
-//   const uniqueIds = [];
+    z.addEventListener('click', function(){
+        textbox.appendChild(z);
+    } )
+ }
 
-//   const unique = Stufe_1.filter(element => {
-//     const isDuplicate = uniqueIds.includes(element.num);
+ // das checkt ob etas im array mehrmals existiert wenn es rausgezogen wird
+   const uniqueIds = [];
+
+   const unique = Stufe_1.filter(element => {
+     const isDuplicate = uniqueIds.includes(element.num);
   
-//     if (!isDuplicate) {
-//       uniqueIds.push(element.num);
+    if (!isDuplicate) {
+       uniqueIds.push(element.num);
   
-//       return true;
-//     }
+       return true;
+     }
   
-//     return false;
-//   });
+     return false;
+   });
 
 
+   // vergleicht arrays
 function equals(a, b) {
     return a.length === b.length &&
         a.every((v, i) => v === b[i]);
@@ -260,7 +259,3 @@ function shuffle(Arr) {
 
   }
 
-  // testen der vergleichfunktion
-  //if( equals( Stufe_1[1].es, Comparethis[1].es) == true ){
-  //}
-  //console.log(shuffle(Stufe_1[].de));

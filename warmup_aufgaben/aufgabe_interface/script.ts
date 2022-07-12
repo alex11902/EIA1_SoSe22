@@ -52,8 +52,8 @@ var n: numeric [] = [
 
 ];
 
-for (let nummer = 0; nummer < n.length; nummer++) {
+for (let nummer = 0; nummer < en.length; nummer++) {
     
-    var Summe = n[nummer]:toString + "" 
+    var Summe = en[nummer]:toString + " " 
     console.log(Summe)
 }
